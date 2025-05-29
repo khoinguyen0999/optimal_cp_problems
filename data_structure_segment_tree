@@ -1,6 +1,77 @@
 SEGMENT TREE
-#Định nghĩa: segment tree là cấu trúc dữ liệu thường dùng trong tìm min, max, gcd và sum của đoạn [l, r]. 
-             Nó dùng đệ quy để chia các đoạn thành phân nửa, mỗi nút đại diện cho giá trị cần tìm (min, max, gcd, sum) của 1 đoạn, cho đến khi l == r: f(l, r) = ai if l == r.
-                                                                                                                                                               = min(f(l, (l + r)/2), f((l + r)/2 + 1, r) if l < r.
+#Định nghĩa: segment tree là cấu trúc dữ liệu thường dùng trong tìm min, max, gcd và sum của đoạn [l, r] với các phần tử được cập nhật. Với các mảng static, ta dùng prefix sum và sparse table.
+             Nó dùng đệ quy để chia các đoạn thành phân nửa, mỗi nút đại diện cho giá trị cần tìm (min, max, gcd, sum) của 1 đoạn, cho đến khi l == r (đỉnh lá): f(l, r) = ai if l == r.
+                                                                                                                                                                         = min(f(l, (l + r)/2), f((l + r)/2 + 1, r) if l < r.
              Chiều cao của cây là logN.
+# Initiation
+
+#include <bits/stdc++.h>
+using namespace std;
+const int inf  = 1e9 + 7;
+const int maxN = 1e5 + 7;
+int n, q;
+int a[maxN];
+int st[4 * maxN];
+
+# Build
+-Có 2 cách
++Xây từ dưới lên: cập nhật các đỉnh lá trước rồi hợp nhất chúng lại tạo ra các nút cha.
++Xây từ trên xuống: dùng đệ quy với công thức như trên:
+
+void build(int id, int l, int r) {
+if(l == r) {
+st[id] = a[l];
+return;
+}
+int mid = l + r >> 1;
+build(id * 2, l, mid);
+build(id * 2 + 1, mid + 1, r);
+st[id] = min(st[2 * id], st[2 * id + 1];
+}
+
+# Update
+-Tương tự như build, update cũng có thể được thực hiện cả ở dứoi lên và ở trên xuống. Với cách từ trên xuống, ta dùng đệ quy.
+
+void update(int id, int l, int r, int i, int val) {
+if(l > i | r < i) return;
+if(l == r) {
+st[id] = val;
+return;
+}
+int mid = l + r >> 1;
+build(id, l, mid, i, val);
+build(id, mid + 1, r, val);
+st[id] = min(st[2 * id], st[2 * id + 1]);
+}
+
+# Query
+-Ta dùng đệ quy truy vấn đoạn [l, r]. 
+Tuy nhiên với trường hợp (r - l + 1) / 2 > n / 2 (đoạn [l, r] thuộc cả 2 nút cha trái và nút cha phải), Ta cần phân tích min(l, r) = min(min(l, z), min(z + 1, r)) với z = n / 2.
+
+int get(int id, int l, int r, int u, int v) {
+if(l > v | r < u) return;
+if(l >= u && r <= v) {
+return st[id];
+}
+int mid = l + r >> 1;
+get1(id, l, mid, u, v);
+get2(id, mid + 1, r, u, v);
+return min(get1, get2);
+}
+
+# Implementation
+int main() {
+    cin >> n;
+    for (int i = 1; i <= n; ++i) cin >> a[i];
+    build(1, 1, n);
+    cin >> q;
+    while (q--) {
+        int type, x, y;
+        cin >> type >> x >> y;
+        if (type == 1) update(1, 1, n, x, y); 
+        else cout << get(1, 1, n, x, y) << '\n'; 
+    }
+}
+
+
                                                                                                                                                                      
