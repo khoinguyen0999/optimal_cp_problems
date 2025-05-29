@@ -1,0 +1,60 @@
+C.JUNTRIX
+#Tóm tắt đề: cho n hàng m cột, số k và một grid n x m. Chọn một điểm (0, j) bất kì. 
+             Hỏi có bao nhiêu cách đi từ (0, j0) tới (n, j). 
+             Biết: (x0, y0) chỉ đi được đến (x = x0 + 1, y | y % k == y0 % k)
+#tag: dp combinatorics
+#idea
+dp[i][r]: số cách đi đến ô tại hàng thứ i và có cột r.
+Trong đó: r là số phân loại cách cột, cột j là r khi và chỉ khi j % k == r
+công thức: dp[i][j % k] += 1 khi grid[i][r] == '.' && i == 0.
+           dp[i][r] = tổng số '.' hàng i * dp[i - 1][r] khi i > 0.
+#solution
+subtask 1, 2: khởi tạo dp[0][j % k]++ if grid[0][j] == '.'
+              duyệt 2 vòng lồng nhau i, j Cập nhật mảng cnt[i][j % k] đếm số lần xuất hiện '.' tại cột thỏa mãn.
+              duyệt r từ 0 tới k, cập nhật dp[i][r] = dp[i - 1][r] * cnt[i][r].
+              int ans = sigma(0, r): dp[n][r].
+subtask 3: tối ưu bằng cách giảm chiều mảng:
+           duyệt 2 vòng lồng nhau, i, j cập nhật mảng cnt[j + 1 % k]++ if grid[i][j] == '.' đếm số lần xuất hiện '.' tại cột thỏa mãn (reset cnt(k, 0) tại mỗi vòng)
+           nếu i == 0: duyệt r = 0 tới k và cập nhân dp[r] = cnt[r] là số cách đi đến mod class r.
+           nếu i != 0: duyệt r = 0 tới k và cập nhật dp[r] *= cnt[r].
+           int ans = sigma(0, r): dp[r].
+#code sample
+int main() {
+    const int MOD = 998244353;
+    freopen("JUNTRIX.INP", "r", stdin);
+    freopen("JUNTRIX.OUT", "w", stdout);
+ 
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+ 
+    int n, m, k;
+    cin >> n >> m >> k;
+ 
+    vector<long long> dp(k, 0); 
+ 
+    for (int i = 0; i < n; i++) {
+        vector<long long> count_mod(k, 0);
+        for (int j = 0; j < m; j++) {
+            char c; cin >> c;
+            if (c == '.') {
+                int r = (j + 1) % k; 
+                count_mod[r]++;
+            }
+        }
+        if (i == 0) {
+            for (int r = 0; r < k; r++) dp[r] = count_mod[r];
+        } else {
+            for (int r = 0; r < k; r++) {
+                dp[r] = (dp[r] * count_mod[r]) % MOD;
+            }
+        }
+    }
+ 
+    long long res = 0;
+    for (int r = 0; r < k; r++) {
+        res = (res + dp[r]) % MOD;
+    }
+ 
+    cout << res << "\n";
+    return 0;
+}
