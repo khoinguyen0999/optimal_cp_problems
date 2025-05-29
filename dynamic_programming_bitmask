@@ -11,6 +11,7 @@ DYNAMIC PROGRAMMING BITMASK
 - Đảo trạng thái bitmask:              mask ^= (1 << i);
 - Đếm số bit 1:                       _builtin_popcount(mask);
 # DP_bitmask
+CẦN PRACTICE THÊM ĐỂ HIỂU
 
 
   
