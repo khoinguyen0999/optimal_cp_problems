@@ -1,0 +1,6 @@
+SEGMENT TREE
+#Định nghĩa: segment tree là cấu trúc dữ liệu thường dùng trong tìm min, max, gcd và sum của đoạn [l, r]. 
+             Nó dùng đệ quy để chia các đoạn thành phân nửa, mỗi nút đại diện cho giá trị cần tìm (min, max, gcd, sum) của 1 đoạn, cho đến khi l == r: f(l, r) = ai if l == r.
+                                                                                                                                                               = min(f(l, (l + r)/2), f((l + r)/2 + 1, r) if l < r.
+             Chiều cao của cây là logN.
+                                                                                                                                                                     
