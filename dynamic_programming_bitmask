@@ -1,0 +1,16 @@
+DYNAMIC PROGRAMMING BITMASK
+# Bitmask
+-Định nghĩa: cách biểu diễn 1 đại diện bằng dãy số bit (compression). 
+-Cho tập hợp a1, a2, a3, a4 có số thứ tự đánh từ phải qua trái 3, 2, 1, 0. Ta có xâu bit biểu diễn sự "bật/tắt" của các phần tử trong tập hợp (các tập con), với 0 là "tắt" và 1 là "bật".
+- Ví dụ với tập A = {1, 2, 7, -1} thì bitmask 0111 có nghĩa là tập con A' = {1, 2, 7}.
+- Một tập hợp có 2 ^ n tập con => Bất kì tập con nào cũng có thể được biểu diễn bằng 1 số nguyên thuộc đoạn [0,, 2 ^ (n - 1)].
+# Bitmask operations
+- Thêm phần tử i vào tập:             `mask; // 1 << i.
+- Xóa phần tử i khỏi tập:              mask &= ~(1 << i); // đặt bit i về 0.
+- Kiểm tra i có thuộc tập không:       if(mask & (1 << i)); // xem bit tại i có bằng 1 không.
+- Đảo trạng thái bitmask:              mask ^= (1 << i);
+- Đếm số bit 1:                       _builtin_popcount(mask);
+# DP_bitmask
+
+
+  
