@@ -1,0 +1,11 @@
+DYNAMIC PROGRAMMING DIGIT
+# Background
+  Digit dp dùng để giải quyết bài toán có dạng: đếm số lượng số nguyên dương, trong đoạn [0, N] hoặc [l, r] (với l <= r, l > 0, r <= N.length()) mà trong đó các chữ số thỏa mãn yêu cầu
+# Idea
+  -Gọi G(x) là đáp án từ đoạn [0, X] => G(l, r) = G(r) - G(l - 1). Vậy làm sao có G(x)?
+  -Trước tiên ta cần hiểu khái niệm biến bool/int tight:
+  + Tight = 0 (có giới hạn): số đang chọn là tiền tố của X.
+  + Tight = 1 (không giới hạn): số đang chọn bé hẳn hơn X.
+  => Ta có công thức memoization table dp[pos][tight][state0][state if necessary].
+CẦN PRACTICE NHIỀU HƠN ĐỂ HIỂU
+    r
