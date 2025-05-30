@@ -8,7 +8,7 @@ bool is_prime[N];
 void sieve() {
 for(int i = 2; i <= N; i++) {
 is_prime[i] = true;
-}
+}#
 for(int i = 2; i * i <= N; i++) {
 if(is_prime[i]) {
 for(int p = i * i; p <= N; p += i) {
@@ -19,4 +19,37 @@ is_prime[i] = false;
 }
 
 # Prime factorization
+- Thuật toán: sàng các số nguyên tố từ 2 đến sqrt(N) lưu vào mảng prime. Duyệt mảng prime, với mỗi phần tử, ta chia N cho prime[i] và in ra i while N % prime[i] == 0. 
+                                                                         Sau cùng nếu n > 1 thì in ra n (n là prime).
+# Counting divisors
+- Định lí: với một số a được phân tích thành b^n . c^m ... thì số ước của số a là (n + 1) . (m + 1). ...+ 1.
+# Sum of divisors
+-Định lí: Với một số a được phân tích thành b^n . c^m ... thì tổng các ước của a là (1 + b + ... + b^n) . (1 + c + ... + c^m).
+
+
+int sumOfDivisors(int n) {
+    int sum = 1;
+    for (int i = 2; i * i <= n; ++i) {
+        if (n % i == 0) {
+            int p = 1;
+            int term = 1;
+            while (n % i == 0) {
+                n /= i;
+                p *= i;         // i^1, i^2, ...
+                term += p;      // 1 + i + i^2 + ...
+            }
+            sum *= term;
+        }
+    }
+    if (n > 1) {
+        // n là số nguyên tố lớn còn lại
+        sum *= (1 + n);
+    }
+    return sum;
+}
+
+
+
+
+                                                                                                       
 
