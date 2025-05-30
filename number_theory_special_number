@@ -1,0 +1,22 @@
+SPECIAL NUMBER
+# Sieve of Eratosthenes
+-Sieve of Erratosthenes là thuật toán sàng nguyên tố. Cho 1 mảng bool is_prime[MAXN], giẩ sử is_prime == true với mọi phần tử. 
+                             Sau đó, ta duyệt các bội số từ 2 đến sqrt(N) để đánh dấu false, các phần tử true còn lại là prime
+
+const int N = 1e6;
+bool is_prime[N];
+void sieve() {
+for(int i = 2; i <= N; i++) {
+is_prime[i] = true;
+}
+for(int i = 2; i * i <= N; i++) {
+if(is_prime[i]) {
+for(int p = i * i; p <= N; p += i) {
+is_prime[i] = false;
+}
+}
+}
+}
+
+# Prime factorization
+
