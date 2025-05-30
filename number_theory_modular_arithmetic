@@ -31,7 +31,7 @@ y = x1 - (a / b) * y1;
 -Modulo exponentiation là thuật toán tối ưu dùng để tính a^b % c. Ta có công thức lũy thừa nhanh: a^b = 1 if b == 0.
                                                                                                       = a^(b/2)^2 if b % 2 == 0.
                                                                                                       = a . a^(b/2)^2 else.
-long long Pow(long long a, long long b) {
+long long Pow(long long a, long long b) {Ass
     if (!b) return 1;
     long long x = Pow(a, b / 2);
     if (b % 2 == 0)
@@ -39,6 +39,60 @@ long long Pow(long long a, long long b) {
     else
         return x * x * a;
 }
+
+# nCk % MOD (= 1e9 + 7) computation
+- Trước hết chúng ta khởi tạo modular_pow(long long a, long long b). Tạo hàm void prepare() tính fact[i] = 1 if i == 0.
+                                                                                                 fact[i] = fact[i - 1] * i % MOD if i > 0.
+                                                                                              và infact[i] = modular_pow(fact[n], MOD - 2) if i == n.
+                                                                                                 infact[i] = infact[i + 1] * (i + 1) % MOD.
+- Cuối cùng, ta dựng hàm long long C(int n, int k) return fact[n] * infact[n - k] * infact[k] % MOD;
+
+const int MOD = 1e9 + 7;
+const int N = 1e6;
+int fact[N + 5], ifact[N + 5];
+
+// Hàm lũy thừa nhanh
+long long binpow(long long a, long long b) {
+    long long ans = 1;
+    while (b > 0){
+        if (b % 2) ans = ans * a % MOD;
+        a = a * a % MOD;
+        b /= 2;
+    }
+    return ans;
+}
+
+// Chuẩn bị
+void prepare(){
+    // Tính fact[]
+    fact[0] = 1;
+    for (int i = 1; i <= N; i++)
+        fact[i] = 1LL * fact[i - 1] * i % MOD;
+
+    // Tính ifact[]
+    ifact[N] = binpow(fact[N], MOD - 2);
+    for (int i = N - 1; i >= 1; i--)
+        ifact[i] = 1LL * ifact[i + 1] * (i + 1) % MOD;
+}
+
+// Hàm tính nCk
+int C(int n, int k){
+    if (k > n) return 0;
+    return (1LL * fact[n] * ifact[k] % MOD) * ifact[n - k] % MOD;
+}
+
+int main(){
+    prepare();
+    // Truy vấn
+    int q; cin >> q;
+    while (q--){
+        int n, k; cin >> n >> k;
+        cout << C(n, k) << '\n';
+    }
+}
+
+                                         
+                                                                                                 
 
 
 
