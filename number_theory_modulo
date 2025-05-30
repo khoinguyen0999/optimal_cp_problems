@@ -1,0 +1,44 @@
+# Euclid algorithm
+-Definition: thuật toán tối ưu tìm gcd(a, b). Ta có công thức truy hồi: gcd(a, b) = a if b == 0.
+                                                                                  = gcd(b, a % b) if b > 0.
+=> lcm(a, b) = (a . b) / gcd(a, b).
+* Hiện tại, c++ đã hỗ trợ hàm gcd(a, b) và lcm(a, b).
+# Extended euclid algorithm
+-Definition: thuật toán trả vê tổ hợp tuyến tính cặp giá trị nguyên (x, y) sao cho ax + by = gcd(a, b). Ví dụ: gcd(55, 80) = 5 = 55 x 3 + 80 x (-2).
+             thuật toán này là nền móng cho việc tìm nghịch đảo modulo và giải phương trình đi-ô-phăng.
+-Ta có: gcd(b, a % b) = d => b x1 + (a % b) y1 = d. Mà a % b = a - [a/b] b, nên a x1 + b (x1 - [a/b]y1) = d => (x, y) = (y1, x1 - [a/b] y1).
+
+int extended_euclid(int a, int b, int x, int y) {
+if(b == 0) {
+x == 1;
+y == 0;
+return a;
+}
+int x1, y1;
+int d = extended_euclid(b, a % b, x1, y1);
+x = y1;
+y = x1 - (a / b) * y1;
+}
+
+# Modulo inverse
+-Cho 2 số nguyên dương a, m, ta nói a ^ -1 là modulo inverse của a khi và chỉ khi a . a^-1 % m == 1. Ví dụ a = 3, m = 7 thì a^-1 = 5. Thuật toán này chủ yếu ứng dụng trong tính tổ hợp.
+-Điều kiện tồn tại modula inverse: gcd(a, m) = 1.
+-Cách 1 (extended euclid algorithm): vì gcd(a, m) = 1 => ax + my = 1. Gọi hàm extended_euclid(a, m, x, y) thì return: -1 if gcd(a, m) != 1.
+                                                                                                                      (x % m + m) % m else.
+-Cách 2: lũy thừa nhị phân và phi hàm euler.
+-Cách 3: định lý fermat nhỏ với m là số nguyên tố.
+# Modulo exponentiation
+-Modulo exponentiation là thuật toán tối ưu dùng để tính a^b % c. Ta có công thức lũy thừa nhanh: a^b = 1 if b == 0.
+                                                                                                      = a^(b/2)^2 if b % 2 == 0.
+                                                                                                      = a . a^(b/2)^2 else.
+long long Pow(long long a, long long b) {
+    if (!b) return 1;
+    long long x = Pow(a, b / 2);
+    if (b % 2 == 0)
+        return x * x;
+    else
+        return x * x * a;
+}
+
+
+
