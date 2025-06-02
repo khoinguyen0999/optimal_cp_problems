@@ -1,0 +1,34 @@
+LÝ THUYẾT ĐỒ THỊ
+# Đỉnh kề, cạnh liền thuộc, đỉnh
+- Bậc của đỉnh là só lượng hàng xóm (đỉnh kề) của đỉnh ấy. => sigma: deg(u) = 2 E
+- Bán bậc ra là số cạnh xuất phát từ u deg+(u).
+- Bán bậc vào là số cạnh kết thúc tại u deg-(u).
+# Đường đi, chu trình
+- Đường đi khép kín: đỉnh cuối trùng với điểm đầu.
+- Chu trình: đường đi khép kín với só đỉnh >= 3.
+# Tính liên thông, khớp cầu
+- 2 đỉnh liên thông khi tồn tại ít nhất 1 đường đi giữa u và v.
+- Một đồ thị liên thông  khi mọi cặp đỉnh G tồn tại đường đi.
+- Một đồ thị song liên thông khi liên thông và không có đỉnh khớp.
+- Với một đồ thị có hướng: liên thông mạnh khi G liên thông.
+                           liên thông yếu khi G liên thông chỉ khi coi như vô hướng.
+- Khớp: xóa đỉnh đó vẫn liên thông.
+- Cầu: xóa cạnh đó vẫn liên thông.
+- Nếu G không liên thông thì các subgraph liên thông rời nhau trong G gọi là thành phần liên thông.
+# Cây
+- G được gọi là cây khi và chỉ khi: G không có chu trình.
+                                    G liên thông.
+                                    E(G) = V(G) - 1.
+# Graph presentation
+- Có 3 cách biểu diễn đồ thị: ma trận kề        a[u][v] = 1 (hoặc w nếu weighted) khi có walk, còn lại = 0. Nếu vô hướng thì khai báo a[u][v] = a[v][u]. Có hướng thì khỏi
+                              danh sách kề      a[u].push_back(v). Nếu vô hướng thì thêm a[v].push_back(u) . Hoặc push_back({v, w}) nếu có trọng số.
+                              danh sách cạnh    a.push_back(u, v, w if weighted).
+# Một số thuật toán quan trọng 
+- Duyệt đồ thị: bfs, bfs, dsu, minimum spanning tree.
+- Sắp xếp topological.
+- Shortest path: dijkstra.
+- Euler tour on tree.
+- Lowest common ancestor.
+- Heavy light decomposition.
+- Centroid decomposition
+
