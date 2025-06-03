@@ -1,5 +1,9 @@
 PROBLEM SET
-# Problem set gồm gần 20 chuyên đề, mỗi chuyên đề gồm 5-10 bài
+# Tutorial
+- Problem set gồm gần 16 chuyên đề, mỗi chuyên đề gồm 5-10 bài
+- Cho deadline 1 tháng, 1 chuyên đề chỉ có 2 ngày để học.
+=> Sau đó luyện đề, contest,...
+Tuần 1: 
 # Popular oj: 
 - Vnoj
 - Codeforces
@@ -12,26 +16,25 @@ PROBLEM SET
 # mixed
 # actual contest
 
-# segment tree/ BIT/ sparse table
-# map,set, map, multiset
-# heap, queue, stack, deque
+# segment tree/ BIT/ sparse table      1
+# map,set, map, multiset               2
+# heap, queue, stack, deque            3
 
-# palindrome and string
-# dp_advanced
-# dp bitmask
-# dp digit
-# dp graph (tree and DAG)
+# palindrome and string                4
+# dp_advanced                          5
+# dp bitmask                           6
+# dp digit                             7
+# dp graph (tree and DAG)              8
 
-# BFS/DFS, DSU
-# Shortest path
-# LCA
-# RMQ
-# HLD
+# BFS/DFS, DSU                         9
+# Shortest path                        10
+# LCA                                  11
+# HLD                                  12                         
 
-# number theory_modular
-# number_theory_number
+# number theory_modular                13
+# number_theory_number                 14
 
-# geometry
+# geometry                             15
 
-# binary search
+# binary search                        16
 
