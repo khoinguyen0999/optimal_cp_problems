@@ -1,0 +1,39 @@
+DUYỆT ĐỒ THỊ
+
+# BFS
+
+- BFS là thuật toán duyệt đồ thị bằng queue theo chiều rộng (layers). Nói cách khác, nó duyệt toàn bộ đỉnh thứ k trước đỉnh thứ k + 1.
+- Mô tả thuật toán: Cho đỉnh gốc vào queue
+                    đánh dấu u đã thăm
+                    while(!queue.empty()) {- 
+                    bỏ u ra
+                    với mỗi đỉnh kề u: nếu chưa thăm: đánh dấu đã thăm 
+                                                      cập nhật d[v] = d[u] + !
+                                                      lưu vết đường đi từ u đến v par[v] = u
+                                                      thêm vào queue
+                    }
+                    truy vết đoạn đường, tìm đường ngắn nhất từ đỉnh gốc tới đỉnh n,... tùy theo yêu cầu.
+=> BFS mạnh trong bài toán shortest path.
+* Nếu thay queue thành stack thì ta có phương pháp khử đệ quy của dfs!
+
+# Thuật toán flood fill
+
+- Flood fill là thuật toán hiệu quả để đếm số thành phần liên thông một đồ thị hoặc một ma trận lưới. 
+- Mô tả thuật toán: duyệt các đỉnh. Nếu đỉnh đó chưa được thăm. Ta gọi hàm bfs, mỗi lần gọi ++components.
+=> Mỗi khi gọi, toàn bộ đỉnh kề (đỉnh liên thông) của thành phân liên thông đều được đánh dấu đã thăm. Vì thế các lần gọi sẽ là 1 thành phần liên thông.
+
+# BFS trong shortest path
+
+- BFS là công cụ mạnh mẽ để tìm đường đi ngắn nhất hoặc số bước ít nhất giữa 2 đỉnh, phổ biến nhất là trong ma trận lưới N x M.
+- Ý tưởng: vì bfs có thể tính độ dài ngắn nhất từ u tới v, nên ta chỉ cần khởi tạo bfs tại u (hoặc v) và tính mảng dist như bình thường.
+
+# BFS trong tìm chu trình ngăn nhất của đồ thị có hướng không trọng số
+- Như bfs bình thường nhưng thêm dòng if (v == s) return d[u] + 1;
+# BFS  tìm shortest path trong đồ trị trọng số 0 1
+# BFS tìm bipartite graph
+
+
+
+
+
+
