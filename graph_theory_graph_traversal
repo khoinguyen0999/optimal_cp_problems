@@ -1,6 +1,7 @@
 DUYỆT ĐỒ THỊ
 
 # BFS
+1. Khái niệm cơ bản
 
 - BFS là thuật toán duyệt đồ thị bằng queue theo chiều rộng (layers). Nói cách khác, nó duyệt toàn bộ đỉnh thứ k trước đỉnh thứ k + 1.
 - Mô tả thuật toán: Cho đỉnh gốc vào queue
@@ -16,21 +17,59 @@ DUYỆT ĐỒ THỊ
 => BFS mạnh trong bài toán shortest path.
 * Nếu thay queue thành stack thì ta có phương pháp khử đệ quy của dfs!
 
-# Thuật toán flood fill
+2. Thuật toán flood fill
 
 - Flood fill là thuật toán hiệu quả để đếm số thành phần liên thông một đồ thị hoặc một ma trận lưới. 
 - Mô tả thuật toán: duyệt các đỉnh. Nếu đỉnh đó chưa được thăm. Ta gọi hàm bfs, mỗi lần gọi ++components.
 => Mỗi khi gọi, toàn bộ đỉnh kề (đỉnh liên thông) của thành phân liên thông đều được đánh dấu đã thăm. Vì thế các lần gọi sẽ là 1 thành phần liên thông.
 
-# BFS trong shortest path
+3. BFS trong shortest path
 
 - BFS là công cụ mạnh mẽ để tìm đường đi ngắn nhất hoặc số bước ít nhất giữa 2 đỉnh, phổ biến nhất là trong ma trận lưới N x M.
 - Ý tưởng: vì bfs có thể tính độ dài ngắn nhất từ u tới v, nên ta chỉ cần khởi tạo bfs tại u (hoặc v) và tính mảng dist như bình thường.
 
-# BFS trong tìm chu trình ngăn nhất của đồ thị có hướng không trọng số
+4. BFS trong tìm chu trình ngăn nhất của đồ thị có hướng không trọng số
 - Như bfs bình thường nhưng thêm dòng if (v == s) return d[u] + 1;
-# BFS  tìm shortest path trong đồ trị trọng số 0 1
-# BFS tìm bipartite graph
+5. 0 1 BFS
+- Tìm đường đi ngắn nhất từ đỉnh đầu tới các đỉnh khác với trọng số 0 1, nhanh hơn dijkstra.
+- Thuật toán: dùng mảng deque, vector<pair<int, int> >.
+              thêm đỉnh đầu vào deque, xét các đỉnh kề và lấy phần tử đầu ra: nếu chưa thăm: đánh dấu đã thăm đỉnh kề.
+                                                                                             nếu dist[kề] > dist[cha] + w (0, 1) thì: deque.push_front(v) khi w == 0. // xét trước ưu tiên
+                                                                                                                                      deque.push_back(v) khi w == 1. // xét sau cùng
+                                                                                                
+6 BFS tìm bipartite graph
+- Bipartite graph là đồ thị có thể chia ra 2 phần mà 2 phần đó là đồ thi con không liên thông.
+- Thuật toán: bfs nhưng: đánh dấu đỉnh gốc màu đen.
+                         đánh dấu đỉnh kề đỉnh gốc màu xanh. (nếu chưa thăm).
+                         Cứ đánh dấu các đỉnh kề màu ngược lại cho đến hết (q.empty()).
+                         nếu đỉnh đang xét != -1 và có đỉnh kề cùng màu với nó thì return false.
+7. BFS trên lưới
+
+# DFS tree
+1. Khái niệm cơ bản
+- Trong quá trình duyệt dfs sẽ sinh ra spanning trees của graph đó. Những cây khung này là cây DFS: parent[v] là đỉnh cha u của v.
+                                                                                                    với mỗi đỉnh, ta đánh dấu đã thăm và xét các đỉnh kề: nếu chưa thăm: cập nhật đã thân
+                                                                                                                                                                         cập nhật đỉnh cha
+                                                                                                                                                                         gọi đệ quy dfs(v)
+=> DFS tree chỉ có một nút gốc duy chất và không có chu trình.
+- Các loại cạnh: đồ thị có hướng: tree edge: cung thuộc cây
+                                  back edge: cung ko thuộc cây và có chiều v -> u
+                                  forward edge: cung ko thuộc cây và có chiều u -> v
+                                  cross edge: cung ko thuộc và cũng ko liên quan ancestor hay descendant (2 nhánh khác nhau)
+                 đồ thị vô hướng: forward edge: cung thuộc cây
+                                  back edge: cung ko thuộc cây
+
+# Topological order
+1. Khái niệm cơ bản
+- Thứ tự topo của một đồ thị là một thứ tự sắp xếp sao cho với mỗi cung từ u đến v thì u luôn đứng trước v. Nói cách khác để đi đến v thì ta phải đi đến u trước.
+- Điều kiện tồn tại: Một đồ thị thỏa mãn thứ tự topo thì nó phải có hướng và không chu trình (DAG - directed acyclic graph). 
+                     Hay mọi DAG đều có ít nhất 1 thứ tự topo. Thứ tự topo sẽ chỉ duy nhất trong DAG khi nó là đường đi Hamilton.
+
+
+
+
+
+
 
 
 
