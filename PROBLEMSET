@@ -32,6 +32,15 @@ Tuần 1:
 # dp graph (tree and DAG)              8
 
 # BFS/DFS, DSU                         9
+https://lequydon.ntucoder.net/Problem/Details/4601
+https://www.spoj.com/problems/UCV2013H/
+https://www.spoj.com/PTIT/problems/BCDAISY/
+https://www.spoj.com/PTIT/problems/BCLKCOUN/
+https://oj.vnoi.info/problem/nkguard
+https://oj.vnoi.info/problem/damage
+https://oj.vnoi.info/problem/vmunch
+http://spoj.com/problems/ELEVTRBL/
+https://lqdoj.edu.vn/problem/cjpaysballas
 # Shortest path                        10
 # LCA                                  11
 # HLD                                  12                         
@@ -42,4 +51,5 @@ Tuần 1:
 # geometry                             15
 
 # binary search                        16
+# two pointers
 
