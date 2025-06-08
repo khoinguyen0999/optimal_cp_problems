@@ -25,26 +25,25 @@ Tuần 1:
 # map,set, map, multiset               2
 # heap, queue, stack, deque            3
 
-# palindrome and string                4
+# string                               4
 # dp_advanced                          5
 # dp bitmask                           6
 # dp digit                             7
 # dp graph (tree and DAG)              8
 
-# BFS/DFS, DSU                         9
+# Graph: bfs, dijkstra, dfs tree,...   9
 https://lequydon.ntucoder.net/Problem/Details/4601
 https://www.spoj.com/problems/UCV2013H/
 https://www.spoj.com/problems/ELEVTRBL/
 https://www.codechef.com/problems/REVERSE
-# Shortest path                        10
-# LCA                                  11
+# LCA                                  10
 # HLD                                  12                         
 
-# number theory_modular                13
-# number_theory_number                 14
+# number theory_modular                11
+# number_theory_number                 12
 
-# geometry                             15
+# geometry                             13
 
-# binary search                        16
-# two pointers
+# binary search                        14
+# two pointers                         15
 
