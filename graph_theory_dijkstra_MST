@@ -1,0 +1,11 @@
+SHORTEST PATH
+# Thuật toán dijkstra
+- Dijkstra + min heap (priority queue) là thuật toán hiệu quả để tìm đường đi ngắn nhất từ đỉnh nguồn u tới đỉnh v.
+- Mô tả thuật toán: khởi tạo vector<pair<int, int> > u({v, w}) (danh sách kề)
+                             visited[v], trace[v], dist[v], vector<pair<int, int>, vector<pair<int, int> >, greater<> > pq
+                             đánh dấu đỉnh start s đã thăm, dist = 0, thêm vào pq {w, u}, trace[s] = -1;
+                             while(!pq.empty()): lấy [w, u] = pq.top() ra; pq.pop(); nếu w > dist[u] continue;
+                                                 duyệt từng [v, w] kề u: nếu dist[u] + w > dist[v] => cập nhật dist[v], trace[v], thêm {w, v} vào pq
+
+
+                                                                                                                
