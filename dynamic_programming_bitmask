@@ -1,4 +1,35 @@
 DYNAMIC PROGRAMMING BITMASK
+# Chuyển 1 số sang hệ nhị phân
+- Cách 1: để chuyển 1 số nguyên không âm sang hệ nhị phân, ta chia số đó cho 2 cho đến khi nó bé hơn 1. Mỗi lần vậy nếu lẻ thì ghi 1, chẵn ghi 0 ở cuối dãy (bên trái)
+- Cách 2: ta tìm i max mà 2^i <= x, mỗi lần tìm được thì x -= 2^i và thêm 1 vào bên phải dãy bit cho đến khi x = 0.
+# Các phép toán trên bit
+- Phép and: x & y sẽ xét từng phần tử bit của x và y, trả về 1 nếu cả 2 là 1 else return 0
+- Phép or: x | y sẽ xét từng phần bit của x và y, trả về 0 nếu cả 2 là 0 else return 1
+- Phép xor: x ^ y sẽ xét từng phần tử bit của x và y, trả về 0 nếu cả 2 giống nhau else return 1 => a xor 0 = 0 xor a = a
+                                                                                                    a cũng có tính chất như phương trình: a xor x = b => b = b xor a
+=> Khi xét 1 dãy phép xor, 1 giá trị xuất hiện chẵn lần thì coi như không xuất hiện, xuất hiện lẻ lần thì tính là 1 lần
+# Phép dịch bit
+- Dịch trái: a << b thêm 0 vào phải của dãy bit, bản chất là nhân a với 2^b
+=> Đặt c = a << b thì: với mọi i [0, b - 1], bit tại i là 0
+                       với mọi i >= b, bit thứ i của c == bit thứ i - b của a
+- Dịch phải: a >> b xóa bit ngoài cùng bên phải của a, bản chất là chia a cho 2^b
+=> Với mọi d = a >> b thì bit thứ i của d == bit thứ i + b của a
+- Nor: a ~ b nghịch đảo 0 1
+=> Các phép tính sẽ trả về các số nguyên dương bất kì. Khi thực hiện phép toán với bit thì lưu ý thêm ngoặc ở mọi vị trí
+# Một số ứng dụng hay gặp
+- 1 << n: 2 ^ n, 1(0 x n) có n bit 0 đằng sau.
+- (1 << n) - 1: số có n bit 1.
+- x & 1: trả về giá trị đơn vị bit thứ 0 của x => 0 nếu chẵn else 1.
+- (x >> i) - 1: trả về bit thứ i của x.
+- x & ((1 << n) - 1): trả về n bit cuối của x.
+- x | (1 << i): gán bit thứ i của x bằng 1.
+- x & ~(1 << i): gán bit thứ i của x bằng 0.
+- x ^ (1 << i): nghịch đảo bit thứ i của x
+- B là bit con A khi và chỉ khi (A & B) == B.
+- x & -x sẽ trả về 2^k với k là vị trí nhỏ nhất của bit 1.
+- _builtin_popcount(x): số bit 1 của x.
+- _builtin_ctz(x): số bit ngoài cùng bên phải x.
+- _builtin_clz(x): số bit ngoài cùng bên trái x.
 # Bitmask
 -Định nghĩa: cách biểu diễn 1 đại diện bằng dãy số bit (compression). 
 -Cho tập hợp a1, a2, a3, a4 có số thứ tự đánh từ phải qua trái 3, 2, 1, 0. Ta có xâu bit biểu diễn sự "bật/tắt" của các phần tử trong tập hợp (các tập con), với 0 là "tắt" và 1 là "bật".
