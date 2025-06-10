@@ -49,6 +49,15 @@ DYNAMIC PROGRAMMING BITMASK
 # Ứng dụng của bit và bitmask
 - Liệt kê các tập con
 - Quy hoạch động
-
+# Ví dụ về quy hoạch động bitmask
+1. Cho dãy hoán vị của các số từ 1 đến N, đếm số hoán vị P sao cho với mọi i (từ 1 đến N-1): abs(P[i] - P[i+1]) ≤ K
+- Lời giải: gọi dp[mask][last] là số cách tạo ra 1 dãy với mask là 1 int đại diện 1 subset
+                                                           last là phần tử cuối của subset đó
+=> Đáp án là tổng dp[(1 << n) - 1][i] i thuộc [0, n)
+- Vậy làm sao tính dp[mask][last]? ta khởi tạo dp[1 << i][i] = 1 = dp[0][0]
+                                   duyệt từng mask [0, 1 << n): duyệt từng last [0, n), bỏ qua nếu last không có trong mask
+                                                                                        duyệt từng next [0, n), nếu next không có trong mask và hiệu last với next thỏa mãn <= k 
+                                                                                        thì thêm next vào mask và last = next => dp[mask | (1 << next)][next] += dp[mask][last].
+- Duyệt tổng đáp án và in ra res
 
   
