@@ -4,8 +4,8 @@ PROBLEM SET
 - Cho deadline 1 tháng, 1 chuyên đề chỉ có 2 ngày để học.
 => Sau đó luyện đề, contest,...
 Week 1: bfs/dfs, dp bitmask 
-Week 2: binary search, segment tree/ BIT, shortest path
-Week 3: heap/deque/multiset, dp advanced
+Week 2: dp advanced, binary search, segment tree/ BIT, shortest path
+Week 3: heap/deque/multiset, binary search
 Week 4: palindrome/string, modulo, sparse table
 Week 5: LCA, KMP, trie/hash, dp graph
 
@@ -34,6 +34,8 @@ https://cses.fi/problemset/task/2181
 https://oj.vnoi.info/problem/lem3
 https://oj.vnoi.info/problem/cowgirl
 https://oj.vnoi.info/problem/mixup2
+https://oj.vnoi.info/problem/atcoder_dp_u
+https://oj.vnoi.info/problem/seq198
 # dp digit                             7
 # dp graph (tree and DAG)              8
 
