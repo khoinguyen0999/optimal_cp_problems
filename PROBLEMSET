@@ -3,8 +3,8 @@ PROBLEM SET
 - Problem set gồm gần 16 chuyên đề, mỗi chuyên đề gồm 5-10 bài
 - Cho deadline 1 tháng, 1 chuyên đề chỉ có 2 ngày để học.
 => Sau đó luyện đề, contest,...
-Week 1: bfs/dfs, dp bitmask 
-Week 2: dp advanced, binary search, segment tree/ BIT, shortest path
+Week 1: bfs, dp bitmask, dp advanced
+Week 2: binary search, segment tree/ BIT, shortest path
 Week 3: heap/deque/multiset, binary search
 Week 4: palindrome/string, modulo, sparse table
 Week 5: LCA, KMP, trie/hash, dp graph
