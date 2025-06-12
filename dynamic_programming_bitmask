@@ -1,4 +1,5 @@
 DYNAMIC PROGRAMMING BITMASK
+https://viblo.asia/p/suc-manh-cua-bitmask-dp-tu-co-ban-den-nang-cao-trong-cp-AZoJj8xyVY7
 # Chuyển 1 số sang hệ nhị phân
 - Cách 1: để chuyển 1 số nguyên không âm sang hệ nhị phân, ta chia số đó cho 2 cho đến khi nó bé hơn 1. Mỗi lần vậy nếu lẻ thì ghi 1, chẵn ghi 0 ở cuối dãy (bên trái)
 - Cách 2: ta tìm i max mà 2^i <= x, mỗi lần tìm được thì x -= 2^i và thêm 1 vào bên phải dãy bit cho đến khi x = 0.
