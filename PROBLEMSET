@@ -5,7 +5,7 @@ PROBLEM SET
 => Sau đó luyện đề, contest,...
 Week 1: bfs, dp bitmask, dp advanced
 Week 2: binary search, segment tree/ BIT, shortest path
-Week 3: heap/deque/multiset, binary search
+Week 3: heap/deque/multiset, binary search, dfs tree
 Week 4: palindrome/string, modulo, sparse table
 Week 5: LCA, KMP, trie/hash, dp graph
 
@@ -17,6 +17,7 @@ Tuần 1:
 - Usaco
 - Cses
 - Clue
+- Csp.vnoi.info
 
 # adhoc
 # mixed
@@ -27,7 +28,18 @@ Tuần 1:
 # heap, queue, stack, deque            3
 
 # string                               4
-# dp_advanced                          5
+# dp basics                            5
+https://oj.vnoi.info/problem/liq
+https://oj.vnoi.info/problem/qbmseq
+https://www.spoj.com/PTIT/problems/PTIT127C/
+https://oj.vnoi.info/problem/HIREHP
+https://www.spoj.com/OLYMPIC/problems/VRENT/
+https://csp.vnoi.info/problem/csphn_signseq
+https://leetcode.com/problems/minimum-path-sum/description/
+https://oj.vnoi.info/problem/atcoder_dp_d
+https://oj.vnoi.info/problem/atcoder_dp_e
+https://leetcode.com/problems/target-sum/description/
+https://www.spoj.com/problems/FARMER/
 # dp bitmask                           6
 https://codeforces.com/gym/100589/problem/G
 https://cses.fi/problemset/task/2181
