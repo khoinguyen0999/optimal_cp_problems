@@ -1,1 +1,14 @@
-.
+QUY HOẠCH ĐỘNG
+# Khái niệm
+- Ta dùng quy hoạch động để giải quyết những vấn đề overlapping subproblem
+- Các bước giải: chọn biến và kết quả
+                 tìm mối liên hệ giữa các biến và kết quả
+                 khởi tạo và xây dựng công thức chuyển trạng thái (hệ thức truy hồi)
+# Quy hoạch động 1 chiều
+- Bài toán chọn ít đồng xu nhất: dp[0] = 0
+                                 dp[i] = min(dp[i], dp[i - V[j]] + 1) => dp[n]
+- Bài toán dãy con tăng dài nhất: dp[0] = 1
+                                  dp[i] = max(dp[i], dp[j] + 1)       => dp[n]
+# Quy hoạch động 2 chiều
+- Cho một bảng , mỗi ô có một lượng táo. Bắt đầu từ ô trái trên, mỗi bước có thể đi sang phải hoặc xuống dưới. :dp[0][0] = a[0][0]
+  Bạn có thể ăn được nhiều nhất bao nhiêu quả táo ?                                                             dp[i][j] = a[i][j] + max(dp[i - 1][j], dp[i][j - 1], 0)
