@@ -19,15 +19,14 @@ Tuần 1:
 - Clue
 - Csp.vnoi.info
 
-# adhoc
-# mixed
 # actual contest
 
 # segment tree/ BIT/ sparse table      1
 # map,set, map, multiset               2
 # heap, queue, stack, deque            3
+# hashing and KMP                      4
 
-# string                               4
+
 # dp basics                            5
 https://oj.vnoi.info/problem/liq
 https://oj.vnoi.info/problem/qbmseq
@@ -64,18 +63,27 @@ https://oj.vnoi.info/problem/mixup2
 https://oj.vnoi.info/problem/atcoder_dp_u
 https://oj.vnoi.info/problem/seq198
 # dp digit                             7
-# dp graph (tree and DAG)              8
 
-# Graph: bfs, dijkstra, dfs tree,...   9
+
+
+
+# BFS, DFS, DSU, topo                  8
 https://lequydon.ntucoder.net/Problem/Details/4601
 https://www.spoj.com/problems/UCV2013H/
 https://www.spoj.com/problems/ELEVTRBL/
 https://www.codechef.com/problems/REVERSE
-# LCA                                  10
-# HLD                                  12                         
+https://cses.fi/problemset/result/13550493/
+https://usaco.org/index.php?page=viewproblem2&cpid=644
+https://usaco.org/index.php?page=viewproblem2&cpid=944
+https://usaco.org/index.php?page=viewproblem2&cpid=992
+https://cses.fi/problemset/task/1668    
+# Shortest path, MST, lca              9
 
-# number theory_modular                11
-# number_theory_divisibility           12
+
+
+# number theory_modular                10
+https://cses.fi/problemset/task/1095
+# number_theory_divisibility           11
 https://codeforces.com/problemset/problem/1536/C
 https://codeforces.com/contest/1225/problem/D
 https://codeforces.com/problemset/problem/1514/C
@@ -84,24 +92,22 @@ https://www.codechef.com/problems/KSIZEGCD
 https://cses.fi/problemset/task/1081
 https://cses.fi/problemset/task/1713
 
-# geometry                             13
 
-# binary search                        14
+# binary search                        12
 https://cses.fi/problemset/task/1085
 https://cses.fi/problemset/task/1620
 https://codeforces.com/contest/1201/problem/C
 https://usaco.org/index.php?page=viewproblem2&cpid=1303
 https://codeforces.com/contest/702/problem/C
-# prefix sum                           15
+# prefix sum                           13
 https://usaco.org/index.php?page=viewproblem2&cpid=595
 https://cses.fi/problemset/task/1661
 https://usaco.org/index.php?page=viewproblem2&cpid=715
 https://codeforces.com/contest/1398/problem/C
 https://codeforces.com/contest/1826/problem/D
-# two pointers                         15
+# two pointers                         14
 https://cses.fi/problemset/task/1640
 https://cses.fi/problemset/task/1641
 https://usaco.org/index.php?page=viewproblem2&cpid=738
 https://codeforces.com/problemset/problem/701/C?__cf_chl_tk=l6fApv5yHLEEiHjO73CoaxCLvNMPHO3SA72mLO1xySw-1751428153-1.0.1.1-xzKiQFu1hTI3F82OgkPXKvLoyjWx7RGs0K1A8xA2IQ0
 https://usaco.org/index.php?page=viewproblem2&cpid=643
-
